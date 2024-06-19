@@ -15,6 +15,7 @@ CREATE TABLE `album` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+
 DROP TABLE IF EXISTS `auth`;
 CREATE TABLE `auth` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -37,6 +38,25 @@ INSERT INTO `auth` (`id`, `username`, `password`, `email`, `blocked`, `active`, 
 (60,	'sj',	'$2y$09$OXKmz4SDbrOh2YdgZjfGBOHsNsC6R96maABy4QTckiUcSn5exRkzq',	'sj@gmail.com',	0,	1,	'user',	'upload',	'denied'),
 (61,	'samuthra',	'$2y$09$zhj/dJ2v.hyZSZ1dR4xmN.cMALWes.kNaR0xdpyGz2roRRZ9CgHAO',	'samuthrasamsds08@gmail.com',	0,	1,	'admin',	'upload',	'granted');
 
+DROP TABLE IF EXISTS `discover`;
+CREATE TABLE `discover` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `image_uri` varchar(256) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `title` varchar(256) NOT NULL,
+  `sub_title` varchar(256) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+INSERT INTO `discover` (`id`, `image_uri`, `title`, `sub_title`) VALUES
+(1,	'Drone.jpg',	'VIDEO',	'Drone'),
+(2,	'candid2.jpg',	'Wedding Photo',	'Candid Photography'),
+(3,	'weddingCandidphoto.jpg',	'Wedding Video',	'Candid Videography'),
+(4,	'Traditional Photography2.jpg',	'Traditional Videography',	'Photo'),
+(5,	'Traditional Videography.jpg',	'Traditional Photography',	'Video'),
+(6,	'LEDWALL.jpg',	'LED WALL',	'Live'),
+(7,	'prewedding2.jpg',	'pre wedding',	'Photo & video '),
+(8,	'candid3.jpg',	'POST WEDDING',	'Photo & video');
+
 DROP TABLE IF EXISTS `gallery`;
 CREATE TABLE `gallery` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -48,8 +68,8 @@ CREATE TABLE `gallery` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 INSERT INTO `gallery` (`id`, `title1`, `title2`, `image_uri`, `video_uri`) VALUES
-(1,	'Wedding',	'E-PHOTO BOOK',	'wedding.jpg',	''),
-(2,	'Wedding',	'Video',	'Video-icon-2.jpg',	'Salem.mp4'),
+(1,	'Wedding',	'E-PHOTO BOOK',	'wedding.jpg',	'pradeep-nijitha.mp4'),
+(2,	'Wedding',	'Video',	'Video-icon-2.jpg',	'salem.mp4'),
 (3,	'Birthday',	'Party',	'Video-icon-3.jpg',	''),
 (4,	'Pre Wedding',	'Shoot Promo',	'Video-icon-4.jpg',	'');
 
@@ -79,6 +99,9 @@ CREATE TABLE `posts` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
+INSERT INTO `posts` (`id`, `date`, `title`, `category`, `content`, `img_location`, `owner`) VALUES
+(1,	'2024-03-22 09:56:39',	'Sparkle With Kindness',	'Category',	NULL,	NULL,	'sakil'),
+(2,	'2024-03-22 09:56:24',	'Love Fiercely Always',	'category',	NULL,	NULL,	'sakil');
 
 DROP TABLE IF EXISTS `session`;
 CREATE TABLE `session` (
@@ -96,4 +119,4 @@ CREATE TABLE `session` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
--- 2024-06-14 14:15:57
+-- 2024-06-19 16:19:48
