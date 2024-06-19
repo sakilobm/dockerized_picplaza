@@ -1,0 +1,64 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "echo",
+            "type": "shell",
+            "command": "echo Hello"
+        },
+        {
+            "label": "Apache Error Log",
+            "type": "shell",
+            "command": "sudo tail -f /var/log/apache2/error.log",
+            "problemMatcher": []
+        },
+        {
+            "label": "Apache Restart",
+            "type": "shell",
+            "command": "sudo service apache2 restart",
+            "problemMatcher": []
+        },
+        {
+            "label": "Syntex Check",
+            "type": "shell",
+            "command": "sudo apache2ctl -t",
+            "problemMatcher": []
+        },
+        {
+            "label": "Grunt",
+            "type": "shell",
+            "command": "cd /var/www/apple/project/grunt && grunt",
+            "problemMatcher": []
+        },
+        {
+            "label": "Compose and Build",
+            "type": "shell",
+            "command": "docker-compose up --build",
+            "problemMatcher": []
+        },
+        {
+            "label": "Docker-Build",
+            "type": "shell",
+            "command": "docker build -t task-mate .",
+            "problemMatcher": []
+        },
+        {
+            "label": "Docker-Run",
+            "type": "shell",
+            "command": "docker run -d -p 8080:80 --name task-mate-container task-mate",
+            "problemMatcher": []
+        },
+        {
+            "label": "Docker-Prune",
+            "type": "shell",
+            "command": "docker container prune",
+            "problemMatcher": []
+        },
+        {
+            "label": "Docker-Exec",
+            "type": "shell",
+            "command": "docker exec -it task-mate-container bash",
+            "problemMatcher": []
+        },
+    ]
+}

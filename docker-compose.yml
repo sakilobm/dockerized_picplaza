@@ -1,0 +1,33 @@
+version: '3.9'
+services:
+  db:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: sakilmaster
+      MYSQL_DATABASE: happysb_todo
+    volumes:
+      - ./sql:/docker-entrypoint-initdb.d # To auto-import the SQL file
+      # - db_data:/var/lib/mysql  # Persist MySQL data
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    links:
+      - db
+
+  newpicplaza:
+    build: .
+    restart: always
+    ports:
+      - 8081:80
+    volumes:
+      - userdata:/root
+    links:
+      - adminer
+      - db
+
+volumes:
+  userdata:

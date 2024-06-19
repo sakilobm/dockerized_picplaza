@@ -1,0 +1,10 @@
+{
+  "db_server": "db",
+  "db_username": "root",
+  "db_password": "sakilmaster",
+  "db_name": "happysb_todo",
+  "base_path": "/",
+  "upload_path": "",
+  "pwr": "admin",
+  "score_limit": 1
+}
